@@ -44,6 +44,7 @@ html, body {
   gap: 12px;
   align-items: center;
   margin-bottom: 12px;
+  flex-wrap: wrap;
 }
 
 .title {
@@ -106,6 +107,7 @@ html, body {
   box-shadow: 0 4px 10px var(--btn-shadow);
   cursor: pointer;
   transition: transform .08s ease, box-shadow .08s ease, background .12s ease, color .12s ease;
+  font-size: 14px;
 }
 
 .btn:active, .btn.pressed {
@@ -130,9 +132,59 @@ html, body {
   grid-column: span 2;
 }
 
-@media (max-width: 420px) {
-  .calculator { padding: 12px; max-width: 360px; }
-  .screen { min-height: 84px; padding: 12px; }
-  .screen .display { font-size: 22px; }
-  .btn { padding: 10px; min-height: 44px; }
+/* 📱 Responsive adjustments */
+@media (max-width: 480px) {
+  .wrap {
+    padding: 12px;
+  }
+
+  .calculator {
+    padding: 12px;
+    max-width: 100%;
+  }
+
+  .top-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  .title {
+    font-size: 14px;
+  }
+
+  .screen {
+    min-height: 70px;
+    padding: 10px;
+  }
+
+  .screen .display {
+    font-size: 20px;
+  }
+
+  .keys {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+
+  .btn {
+    font-size: 13px;
+    padding: 10px;
+    min-height: 42px;
+  }
+
+  .btn.wide {
+    grid-column: span 2;
+  }
+}
+
+
+@media (max-width: 340px) {
+  .screen .display {
+    font-size: 18px;
+  }
+  .btn {
+    font-size: 12px;
+    padding: 8px;
+  }
 }
